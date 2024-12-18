@@ -1,0 +1,112 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.vendor.brand=blackview
+ro.product.vendor.device=shark8
+ro.product.vendor.manufacturer=blackview
+ro.product.vendor.model=shark8
+ro.product.vendor.name=twrp_shark8
+ro.vendor.product.cpu.abilist=arm64-v8a
+ro.vendor.product.cpu.abilist32=
+ro.vendor.product.cpu.abilist64=arm64-v8a
+ro.vendor.build.date=Wed Dec 18 01:50:11 EET 2024
+ro.vendor.build.date.utc=1734479411
+ro.vendor.build.fingerprint=blackview/twrp_shark8/shark8:99.87.36/SD2A.220601.004.B2/serguc12180150:eng/test-keys
+ro.vendor.build.id=SD2A.220601.004.B2
+ro.vendor.build.tags=test-keys
+ro.vendor.build.type=eng
+ro.vendor.build.version.incremental=eng.serguc.20241218.015616
+ro.vendor.build.version.release=99.87.36
+ro.vendor.build.version.release_or_codename=99.87.36
+ro.vendor.build.version.sdk=32
+####################################
+# from device/blackview/shark8/vendor.prop
+####################################
+# feat by lopestom
+#ro.board.platform=mt6789
+ro.vendor.mtk_f2fs_enable=1
+ro.vendor.mtk_emmc_support=1
+ro.vendor.mediatek.version.branch=alps-mp-s0.mp1
+ro.vendor.mediatek.version.release=alps-mp-s0.mp1.rc-V15.125_ontim.xr.s0mp1rc.k61v1.64.bsp_P1
+ro.vendor.mtk_trustkernel_tee_support=1
+ro.hardware.kmsetkey=trustkernel
+ro.hardware.gatekeeper=trustkernel
+ro.hardware.vulkan=mali
+ro.vendor.mediatek.platform=MT6789
+ro.hardware.egl=meow
+ro.vendor.mgk_name=mgk_64_entry_level_k510
+ro.vendor.mgvi_name=mgvi_64_armv82
+#
+#ro.product.board=mgvi_64_armv82
+#ro.board.platform=common
+# Crypto
+ro.crypto.volume.filenames_mode=aes-256-cts
+#
+ro.crypto.metadata.enabled=true
+ro.crypto.support_metadata_encrypt=true
+ro.crypto.uses_fs_ioc_add_encryption_key=true
+ro.crypto.volume.metadata.method=dm-default-key
+ro.crypto.dm_default_key.options_format.version=2
+ro.crypto.volume.options=::v2
+# TEE & Gatekeeper & Keymaster
+ro.tee_support=1
+ro.mtk_trustkernel_tee_support=1
+ro.vendor.mtk_trustkernel_tee_support=1
+ro.hardware.kmsetkey=trustkernel
+ro.hardware.gatekeeper=trustkernel
+####################################
+# from out/target/product/shark8/obj/ETC/android_info_prop_intermediates/android_info.prop
+####################################
+####################################
+# from variable ADDITIONAL_VENDOR_PROPERTIES
+####################################
+ro.vndk.version=32
+ro.bionic.arch=arm64
+ro.bionic.cpu_variant=cortex-a55
+ro.bionic.2nd_arch=arm
+ro.bionic.2nd_cpu_variant=cortex-a55
+persist.sys.dalvik.vm.lib.2=libart.so
+dalvik.vm.isa.arm64.variant=cortex-a55
+dalvik.vm.isa.arm64.features=default
+dalvik.vm.isa.arm.variant=cortex-a55
+dalvik.vm.isa.arm.features=default
+ro.minui.overscan_percent=0
+ro.minui.pixel_format=RGBX_8888
+ro.boot.dynamic_partitions=true
+ro.product.first_api_level=32
+ro.product.debugfs_restrictions.enabled=true
+ro.vendor.build.security_patch=2099-12-31
+ro.product.board=mgvi_64_armv82
+ro.board.platform=common
+ro.hwui.use_vulkan=
+ro.build.ab_update=true
+####################################
+# from variable PRODUCT_VENDOR_PROPERTIES
+####################################
+# Removed by post_process_props.py because overridden by ro.zygote=zygote64
+#ro.zygote?=zygote32
+ro.zygote=zygote64
+external_storage.projid.enabled=1
+external_storage.casefold.enabled=1
+external_storage.sdcardfs.enabled=0
+ro.virtual_ab.enabled=true
+####################################
+# from variable PRODUCT_DEFAULT_PROPERTY_OVERRIDES
+####################################
+####################################
+# from variable PRODUCT_PROPERTY_OVERRIDES
+####################################
+ro.com.google.clientidbase=android-google
+ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
+ro.com.android.wifi-watchlist=GoogleGuest
+ro.setupwizard.enterprise_mode=1
+ro.build.selinux=1
+persist.sys.disable_rescue=true
+net.tethering.noprovisioning=true
+ro.modversion=PB-12-20241218-twrp_shark8-HOMEMADE
+ro.pb.version=12-20241218-twrp_shark8-HOMEMADE
+ro.pb.fingerprint=PB/12/twrp_shark8/20241218.01:56
+# Auto-added by post_process_props.py
+persist.sys.usb.config=none
+# end of file
