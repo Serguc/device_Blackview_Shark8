@@ -1,7 +1,7 @@
 #import /init.mtk-plpath-utils.rc
 #add for board init.rc for recovery mode
 import /init.recovery.common.rc
-#import /init.recovery.trustkernel.rc
+#import /init.recovery.trustkernel.decrypt.rc
 import /vendor/etc/init/trustkernel.rc
 #import /vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
 # trustkernel tee patch start
