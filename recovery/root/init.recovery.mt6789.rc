@@ -76,6 +76,7 @@ service load_ts_firmware /system/bin/load_ts_firmware.sh
     group root
     disabled
     seclabel u:r:recovery:s0
+
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
