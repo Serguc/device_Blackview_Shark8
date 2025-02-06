@@ -13,7 +13,7 @@ ro.hardware.egl=meow
 ro.vendor.mgk_name=mgk_64_entry_level_k510
 ro.vendor.mgvi_name=mgvi_64_armv82
 #
-#ro.product.board=mgvi_64_armv82
+#ro.product.board=k6789v1_64
 #ro.board.platform=common
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
