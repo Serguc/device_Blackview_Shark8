@@ -1,0 +1,242 @@
+#
+# Copyright (C) 2024 The TWRP Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+DEVICE_PATH := device/Blackview/Shark8
+
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a55
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
+
+TARGET_BOARD_SUFFIX := _64
+TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
+
+# Assertation
+TARGET_OTA_ASSERT_DEVICE := Shark8_NEU
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := Shark8
+TARGET_NO_BOOTLOADER := true
+TARGET_USES_UEFI := true
+
+# Platform
+TARGET_BOARD_PLATFORM := mt6789
+
+# These two are for MTK Chipsets only
+BOARD_USES_MTK_HARDWARE := true
+BOARD_HAS_MTK_HARDWARE := true
+
+# Kernel
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2,androidboot.selinux=enforcing
+BOARD_KERNEL_BASE := 0x3fff8000
+BOARD_PAGE_SIZE := 4096
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x26f08000
+BOARD_TAGS_OFFSET := 0x07c88000
+BOARD_BOOT_HEADER_VERSION := 4
+BOARD_HEADER_SIZE := 2128
+BOARD_DTB_SIZE := 197217
+BOARD_DTB_OFFSET := 0x07c88000
+BOARD_FLASH_BLOCK_SIZE := 262144
+
+BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+BOARD_MKBOOTIMG_ARGS += --vendor_cmdline $(BOARD_VENDOR_CMDLINE)
+BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_PAGE_SIZE) --board ""
+BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_TAGS_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
+
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_RAMDISK_USE_LZ4 := true
+TARGET_NO_KERNEL := true
+
+# Vendor CMD
+BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
+
+# VNDK
+BOARD_VNDK_VERSION := current
+
+# Android Verified Boot
+BOARD_AVB_ENABLE := true
+
+# AVB
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
+BOARD_AVB_VBMETA_SYSTEM := system
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
+
+# Partitions
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
+
+# Dynamic Partition
+BOARD_SUPER_PARTITION_SIZE := 0x220000000
+BOARD_SUPER_PARTITION_GROUPS := main_dynamic_partitions
+BOARD_MAIN_DYNAMIC_PARTITIONS_SIZE := 0x220000000
+BOARD_MAIN_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor vendor_dlkm product odm_dlkm
+
+TARGET_COPY_OUT_ODM := odm
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM := system
+TARGET_COPY_OUT_VENDOR := vendor
+
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
+# Recovery
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE :=
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+#BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+BOARD_INCLUDE_RECOVERY_DTBO := true
+BOARD_USES_RECOVERY_AS_BOOT := false
+TARGET_NO_RECOVERY := false
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USES_MKE2FS := true
+
+
+TARGET_RECOVERY_DEVICE_MODULES += libpuresoftkeymasterdevice
+
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+
+# Crypto
+#TW_INCLUDE_CRYPTO := true
+#TW_INCLUDE_CRYPTO_FBE := true
+TW_USE_FSCRYPT_POLICY := 2
+TW_EXCLUDE_APEX := true
+TW_PREPARE_DATA_MEDIA_EARLY := true
+
+# Encryption
+# Metadata
+BOARD_ROOT_EXTRA_FOLDERS += metadata
+TW_CRYPTO_FS_TYPE := "ext4"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/soc/11270000.ufshci/by-name/userdata"
+TW_CRYPTO_MNT_POINT := "/data"
+TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,data=fileencryption=aes-256-xts:aes-256-cts:v2"
+PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+PLATFORM_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := 2099-12-31
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+
+
+# TWRP Configuration
+TW_THEME := portrait_hdpi
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+RECOVERY_SDCARD_ON_DATA := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_NO_SCREEN_BLANK := true
+TW_USE_TOOLBOX := true
+TW_HAS_MTP := true
+TW_DEFAULT_BRIGHTNESS := 200
+TW_MAX_BRIGHTNESS := 223
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_FRAMERATE := 60
+TW_FRAMERATE := 120
+TW_STATUS_ICONS_ALIGN := center
+TW_CUSTOM_CPU_POS := 50
+TW_CUSTOM_CLOCK_POS := 300
+TW_CUSTOM_BATTERY_POS := 800
+TW_EXCLUDE_APEX := true
+TW_EXTRA_LANGUAGES := true
+TW_DEFAULT_LANGUAGE := en
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_FUSE_EXFAT := true
+TW_INCLUDE_FUSE_NTFS := true
+TARGET_USES_MKE2FS := true
+TW_EXCLUDE_TWRPAPP := true
+TW_INCLUDE_LPDUMP:= true
+TW_INCLUDE_LPTOOLS := true
+TW_NO_FASTBOOT_BOOT := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP :=true
+TW_INCLUDE_REPACKTOOLS := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
+#Perhaps this value is not correct
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone25/temp"
+
+# TWRP Backup options
+TW_BACKUP_EXCLUSIONS := /data/fonts/files
+
+# TWRP Debug-tools
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+
+# TWRP Battery
+TW_USE_LEGACY_BATTERY_SERVICES := true
+
+# Haptics
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+
+# Modules & Sensors
+TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_USES_VENDOR_LIBS := true
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+TW_LOAD_PREBUILT_MODULES := true
+
+# Apex
+TW_EXCLUDE_APEX=true
+
+# Maintainer specific settings
+#TW_DEVICE_VERSION := Serguc
