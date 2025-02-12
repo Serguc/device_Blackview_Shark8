@@ -24,6 +24,20 @@ Camera  | 64 MP (Samsung® ISOCELL GW3) and 13 MP (Samsung® ISOCELL 3L6)
 ## Features
 
 # Building
+Works:
+- [X] ADB
+- [ ] Trustkernel Decryption
+- [X] Display
+- [ ] Fasbootd
+- [ ] Flashing
+- [X] MTP
+- [ ] Sideload
+- [ ] USB OTG
+- [ ] SDCard
+- [ ] Touch
+- [ ] Flashlight
+- [ ] Vibrator
+
 ```bash
 source build/envsetup.sh
 lunch twrp_shark8-eng
