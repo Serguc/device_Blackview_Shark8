@@ -28,12 +28,12 @@ Works:
 - [X] ADB
 - [ ] Trustkernel Decryption
 - [X] Display
-- [ ] Fasbootd
+- [X] Fasbootd
 - [ ] Flashing
 - [X] MTP
 - [ ] Sideload
 - [ ] USB OTG
-- [ ] SDCard
+- [X] SDCard
 - [ ] Touch
 - [ ] Flashlight
 - [ ] Vibrator
